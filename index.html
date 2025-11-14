@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contabilidade consultiva especializada em abertura de empresas, BPO Financeiro e Perícia Contábil. Transforme números em estratégia com Alexandre Belém.">
+    <meta name="keywords" content="Contabilidade, BPO Financeiro, Abertura de Empresa, Perícia Contábil, Alexandre Belém, Contador">
+    <meta name="author" content="Alexandre Belém Contabilidade">
+    
+    <meta property="og:title" content="Alexandre Belém - Contabilidade Consultiva">
+    <meta property="og:description" content="Mais que contabilidade: inteligência financeira para o seu negócio.">
+    <meta property="og:type" content="website">
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Alexandre Belém | Contabilidade Consultiva</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <img src="Logo.jpg" alt="Alexandre Belém Contabilidade" class="header-logo" width="150" height="60">
+            </div>
+            
+            <nav>
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Soluções</a></li>
+                    <li><a href="#simulador">Simulador PJ</a></li>
+                    <li><a href="#contato" class="btn-nav">Fale com Especialista</a></li>
+                </ul>
+
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Alternar Tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="mobile-menu-icon" id="mobile-menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="container hero-content reveal">
+                <h1>Transforme números em <br><span class="gold-text">Estratégia de Negócio</span></h1>
+                <p>Inteligência financeira para impulsionar o crescimento da sua empresa com total segurança jurídica e tributária.</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-primary">Quero abrir minha empresa</a>
+                    <a href="#servicos" class="btn-outline">Conhecer soluções</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="section-pad">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Soluções Especializadas</h2>
+                <p class="section-subtitle">Do operacional ao estratégico, cuidamos de tudo.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card reveal-card">
+                    <div class="icon-box"><i class="fas fa-rocket"></i></div>
+                    <h3>Abertura de Empresas</h3>
+                    <p>Legalização completa, ágil e definição do melhor regime tributário para você começar economizando.</p>
+                </div>
+                <div class="card reveal-card">
+                    <div class="icon-box"><i class="fas fa-chart-pie"></i></div>
+                    <h3>BPO Financeiro</h3>
+                    <p>Terceirize a gestão financeira. Nós cuidamos das contas a pagar e receber, você foca em vender.</p>
+                </div>
+                <div class="card reveal-card">
+                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Consultoria Tributária</h3>
+                    <p>Planejamento estratégico para elisão fiscal lícita, reduzindo custos e recuperando créditos.</p>
+                </div>
+                <div class="card reveal-card">
+                    <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+                    <h3>Departamento Pessoal</h3>
+                    <p>Gestão humanizada de folha, benefícios e eSocial, mitigando riscos trabalhistas.</p>
+                </div>
+                <div class="card reveal-card">
+                    <div class="icon-box"><i class="fas fa-search-dollar"></i></div>
+                    <h3>Perícia Contábil</h3>
+                    <p>Laudos técnicos e pareceres assertivos para processos judiciais e extrajudiciais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulador" class="section-dark">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-side reveal">
+                    <h2 class="gold-text">Vale a pena ser PJ?</h2>
+                    <p>Compare seus ganhos líquidos e descubra a economia real migrando para Pessoa Jurídica.</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Redução da carga tributária</li>
+                        <li><i class="fas fa-check"></i> Maior liberdade financeira</li>
+                        <li><i class="fas fa-check"></i> Regularidade fiscal</li>
+                    </ul>
+                </div>
+                <div class="calculator-side reveal">
+                    <div class="calc-box">
+                        <div class="input-group">
+                            <label>Faturamento Mensal Estimado (R$)</label>
+                            <input type="number" id="faturamentoInput" placeholder="Ex: 10000">
+                        </div>
+                        <div class="input-group">
+                            <label>Despesas Mensais PJ (Contador, Taxas) R$</label>
+                            <input type="number" id="despesasInput" placeholder="Ex: 500" value="0">
+                        </div>
+                        
+                        <button onclick="calcularPJ()" class="btn-full">Simular Economia</button>
+                        
+                        <div id="resultado" class="resultado hidden">
+                            <div class="res-row">
+                                <span>Líquido CLT (Estimado):</span>
+                                <strong id="resCLT">R$ 0,00</strong>
+                            </div>
+                            <div class="res-row highlight-row">
+                                <span>Líquido PJ (Estimado):</span>
+                                <strong class="green-text" id="resPJ">R$ 0,00</strong>
+                            </div>
+                            <div class="alert-box">
+                                <i class="fas fa-wallet"></i>
+                                <span>Você ganha <b id="resDif">R$ 0,00</b> a mais por mês!</span>
+                            </div>
+                            <small>*Cálculo simplificado para fins ilustrativos.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info reveal">
+                    <h3>Alexandre Belém<span class="highlight">.</span></h3>
+                    <p>Contabilidade consultiva focada no sucesso e longevidade do seu negócio.</p>
+                    
+                    <div class="contacts">
+                        <a href="#" class="contact-item"><i class="fab fa-whatsapp"></i> (00) 99999-9999</a>
+                        <a href="mailto:contato@alexandrebelem.com.br" class="contact-item"><i class="far fa-envelope"></i> contato@alexandrebelem.com.br</a>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Seu Endereço Comercial, 100</div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-form reveal">
+                    <h4>Solicite uma Proposta</h4>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="nome" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Seu E-mail Corporativo" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="mensagem" placeholder="Como podemos ajudar sua empresa?" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copy">
+                <p>&copy; 2025 Alexandre Belém Contabilidade. Todos os direitos reservados.</p>
+                <p class="credits">Design por Alexandre Belém</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Mensagem Enviada!</h3>
+            <p>Recebemos sua solicitação. Nossa equipe entrará em contato em breve.</p>
+            <button id="closeModal" class="btn-primary">Fechar</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5500999999999?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20proposta." class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
