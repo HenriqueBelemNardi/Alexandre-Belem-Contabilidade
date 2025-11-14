@@ -125,7 +125,6 @@ nav {
     gap: 20px; /* Espaço entre a lista de menu e os controles */
 }
 
-/* **CSS CORRIGIDO** */
 .nav-controls { 
     display: flex; /* Visível sempre (desktop e mobile) */
     align-items: center; 
@@ -151,7 +150,6 @@ nav {
 }
 .btn-nav:hover { background-color: var(--accent-color); color: #fff !important; }
 
-/* **CSS CORRIGIDO** */
 .mobile-menu-icon { 
     display: none; /* Escondido no desktop */
     font-size: 1.4rem; 
@@ -315,10 +313,10 @@ footer { background: #020617; color: #94a3b8; padding-top: 60px; }
 @media (max-width: 992px) {
     .hero-content h1 { font-size: 2rem; } 
     
-    /* **CSS CORRIGIDO** */
     /* Esconde a lista de menu principal no desktop */
-    nav .nav-list {
-        display: none;
+    nav > .nav-list {
+         /* **CORREÇÃO: Esta regra foi REMOVIDA daqui.** */
+         /* A linha "display: none;" que estava aqui foi deletada. */
     }
     
     /* Mostra o ícone de menu hambúrguer */
@@ -326,17 +324,23 @@ footer { background: #020617; color: #94a3b8; padding-top: 60px; }
         display: block; 
         z-index: 1002;
     }
-    /* O .nav-controls e o .theme-btn dentro dele já estão visíveis */
 
-
-    /* Regras para o menu que abre (o .nav-list que foi escondido) */
+    /* Regras para o menu que abre (o .nav-list) */
     .nav-list {
-        display: flex; /* Sobrescreve o 'none' para quando ele for ativado */
+        display: flex; /* Garante que ele é flex */
         position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh;
         background: var(--bg-color); flex-direction: column; padding: 100px 20px;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1001;
+        
+        /* Sobrescreve as regras de desktop */
+        gap: 30px; /* Espaço maior no menu mobile */
+        align-items: flex-start; /* Alinha links à esquerda */
     }
-    .nav-list.active { right: 0; }
+
+    /* A regra de .active mostra o menu */
+    .nav-list.active { 
+        right: 0; 
+    }
     
     .menu-overlay {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);

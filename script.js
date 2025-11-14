@@ -68,34 +68,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reveals.forEach(el => revealOnScroll.observe(el));
 
-    // --- 4. FORMULÁRIO E MODAL ---
+    // --- 4. FORMULÁRIO E MODAL (COM ENVIO REAL VIA AJAX) ---
     const form = document.getElementById('contactForm');
     const modal = document.getElementById('successModal');
     const closeModal = document.getElementById('closeModal');
 
-    form.addEventListener('submit', (e) => {
+    // Verifica se o formulário existe antes de adicionar o listener
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
+
+    async function handleSubmit(e) {
         e.preventDefault();
         
-        // Simulação de envio
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
         btn.innerText = 'Enviando...';
         btn.disabled = true;
 
-        setTimeout(() => {
-            modal.style.display = 'flex';
-            form.reset();
+        const data = new FormData(e.target);
+        
+        try {
+            const response = await fetch(e.target.action, {
+                method: e.target.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Sucesso! Mostra o modal
+                if(modal) modal.style.display = 'flex';
+                form.reset();
+            } else {
+                // Erro no Formspree (ex: validação)
+                response.json().then(data => {
+                    if (data.errors) {
+                        alert(data.errors.map(err => err.message).join(", "));
+                    } else {
+                        alert('Oops! Algo deu errado no envio.');
+                    }
+                });
+            }
+        } catch (error) {
+            // Erro de rede (sem conexão)
+            alert('Erro de conexão. Tente novamente.');
+        } finally {
+            // Restaura o botão
             btn.innerText = originalText;
             btn.disabled = false;
-        }, 1500);
-    });
+        }
+    }
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+    // Lógica para fechar o modal
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            if(modal) modal.style.display = 'none';
+        });
+    }
 
     window.onclick = (e) => {
-        if (e.target == modal) modal.style.display = 'none';
+        if (e.target == modal) {
+            if(modal) modal.style.display = 'none';
+        }
     }
 });
 
@@ -127,13 +163,21 @@ function calcularPJ() {
     // Formatador BRL
     const fmt = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
-    document.getElementById('resCLT').innerText = fmt.format(liquidoCLT);
-    document.getElementById('resPJ').innerText = fmt.format(liquidoPJ);
-    document.getElementById('resDif').innerText = fmt.format(diferenca);
+    // Verifica se os elementos existem antes de tentar atualizar
+    if (document.getElementById('resCLT')) {
+        document.getElementById('resCLT').innerText = fmt.format(liquidoCLT);
+    }
+    if (document.getElementById('resPJ')) {
+        document.getElementById('resPJ').innerText = fmt.format(liquidoPJ);
+    }
+    if (document.getElementById('resDif')) {
+        document.getElementById('resDif').innerText = fmt.format(diferenca);
+    }
 
     // Exibir resultado
-    resDiv.classList.remove('hidden');
-    
-    // Scroll suave até o resultado
-    resDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (resDiv) {
+        resDiv.classList.remove('hidden');
+        // Scroll suave até o resultado
+        resDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 }
